@@ -23,20 +23,22 @@ class PredictSentiment extends React.Component {
         const input = {
             Input : this.state.input
         }
+        console.log(input)
 
-        Axios.post('https://ml-sa-demo.herokuapp.com/api/prediction', input)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                this.setState({
-                    prediction: res.data
-                })
+        Axios.post('https://localhost:44369/api/prediction', input)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+            this.setState({
+                prediction: res.data
             })
+        })
+        
     }
 
     render() {
         return (
-            <form className='predict'>
+            <div>
                 <div>
                     <input
                         className = 'form-control'
@@ -52,7 +54,7 @@ class PredictSentiment extends React.Component {
                 </div>    
                 <h3>The model thinks the input was </h3>
                 <h2>{this.state.prediction}</h2>
-            </form>
+            </div>
         )
     }
 }
