@@ -25,7 +25,7 @@ class PredictSentiment extends React.Component {
         }
         console.log(input)
 
-        Axios.post('https://localhost:44369/api/prediction', input)
+        Axios.post('https://ml-sa-demo.herokuapp.com/api/prediction', input)
         .then(res => {
             console.log(res);
             console.log(res.data);
